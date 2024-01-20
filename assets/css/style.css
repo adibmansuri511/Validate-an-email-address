@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: linear-gradient(to right, #06307d, #4a2f86, #762989, #9d1d85, #c0097a);
+    background-image: linear-gradient(to right, #206925, #468626, #6fa222, #9dbe1a, #d1d80c);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -31,69 +31,180 @@ main {
 form input {
     height: 40px;
     width: 80%;
-    outline-offset: 1px;
-    border: 2px solid #930037;
+    /* outline-offset: 1px; */
+    border: 3px solid #000000;
     border-radius: 5px;
     background-color: #ffffff42;
-    color: #fff;
+    color: #000000;
     font-size: 1rem;
 }
 
 form input:focus {
-    outline: 2px solid #ffffff;
-    background-color: #6c2d436b;
+    outline: 3px solid #d9d803;
+    background-color: #d9d803;
     transition-duration: 100ms;
 }
 
-.custom-btn {
-    background-color: #1d0976f5;
-    padding: 0.4em 0.8em;
-    margin-top: 1.75rem;
-    border-radius: 20em;
-    border: none;
-    user-select: none;
-    cursor: pointer;
+.custom-text-dark {
+    color: #000000;
+}
+
+
+/* .input-color {
+    color: blue !important;
     font-size: 1rem;
-    transition: all 100ms linear;
-    color: #ffffff;
+    font-weight: bold;
+} */
+
+
+.btn-01,
+.btn-01 *,
+.btn-01 :after,
+.btn-01 :before,
+.btn-01:after,
+.btn-01:before {
+    border: 0 solid;
+    box-sizing: border-box;
+}
+
+.btn-01 {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: button;
+    background-color: #082604;
+    background-image: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 100%;
+    font-weight: 900;
+    line-height: 1.5;
+    margin: 0;
+    -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.btn-01:disabled {
+    cursor: default;
+}
+
+.btn-01:-moz-focusring {
+    outline: auto;
+}
+
+.btn-01 svg {
+    display: block;
+    vertical-align: middle;
+}
+
+.btn-01 [hidden] {
+    display: none;
+}
+
+.btn-01 {
+    border-radius: 99rem;
+    border-width: 2px;
+    padding: 0.8rem 3rem;
+    z-index: 0;
+}
+
+.btn-01,
+.btn-01 .text-container {
+    overflow: hidden;
     position: relative;
-    box-shadow: inset 0 4px 6px -1px rgb(0 0 0 / 0.1),
-        0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
-.custom-btn:active {
-    box-shadow: inset 0 0 0 4px #043b3f6b;
+.btn-01 .text-container {
+    display: block;
 }
 
-.custom-btn::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: #1d0976f5;
-    position: absolute;
-    border-radius: inherit;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    transition: all 500ms ease-in-out;
-    opacity: 0;
-    animation: flash 100ms ease-in-out;
-    transform: scaleX(2) scaleY(2);
+.btn-01 .text {
+    display: block;
+    mix-blend-mode: difference;
+    position: relative;
 }
 
-.custom-btn:hover::before {
-    opacity: 1;
-    transform: scaleX(1) scaleY(1);
+.btn-01:hover .text {
+    -webkit-animation: move-up-alternate 0.3s forwards;
+    animation: move-up-alternate 0.3s forwards;
 }
 
-@keyframes flash {
+@-webkit-keyframes move-up-alternate {
     0% {
-        opacity: 1;
-        transform: translate(45px);
+        transform: translateY(0);
     }
 
-    100% {
-        opacity: 0;
-        transform: translate(0);
+    50% {
+        transform: translateY(80%);
     }
+
+    51% {
+        transform: translateY(-80%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes move-up-alternate {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(80%);
+    }
+
+    51% {
+        transform: translateY(-80%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.btn-01:after,
+.btn-01:before {
+    --tilt: 20px;
+    background: #ffffff;
+    -webkit-clip-path: polygon(0 0,
+            calc(100% - var(--tilt)) 0,
+            100% 50%,
+            calc(100% - var(--tilt)) 100%,
+            0 100%);
+    clip-path: polygon(0 0,
+            calc(100% - var(--tilt)) 0,
+            100% 50%,
+            calc(100% - var(--tilt)) 100%,
+            0 100%);
+    content: "";
+    height: 100%;
+    left: -100%;
+    position: absolute;
+    top: 0;
+    transition: transform 0.6s;
+    width: 100%;
+}
+
+.btn-01:after {
+    -webkit-clip-path: polygon(var(--tilt) 0,
+            0 50%,
+            var(--tilt) 100%,
+            100% 100%,
+            100% 0);
+    clip-path: polygon(var(--tilt) 0, 0 50%, var(--tilt) 100%, 100% 100%, 100% 0);
+    left: 100%;
+    z-index: -1;
+}
+
+.btn-01:hover:before {
+    transform: translateX(100%);
+}
+
+.btn-01:hover:after {
+    transform: translateX(-100%);
 }
